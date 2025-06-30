@@ -1,4 +1,4 @@
-# Travel Idea Website
+# Travel Idea Website (Front-End)
 
 A comprehensive website for sharing and discovering inspiring travel ideas, itineraries, and tips for various destinations around the world.
 
@@ -59,7 +59,7 @@ Travel Idea Website/
    ```
 
 3. **Open in your browser**
-   - Simply open `Home.html` in your web browser
+   - Simply open `Travel Idea Website/Home.html` in your web browser
    - Or use a local server for better performance:
      ```bash
      # Using Python
@@ -70,8 +70,8 @@ Travel Idea Website/
      ```
 
 4. **Access the website**
-   - Direct file: `file:///path/to/Home.html`
-   - Local server: `http://localhost:8000`
+   - Direct file: `file:///path/to/Travel Idea Website/Home.html`
+   - Local server: `http://localhost:8000/Travel Idea Website/Home.html`
 
 ## 🌟 Destinations Covered
 
