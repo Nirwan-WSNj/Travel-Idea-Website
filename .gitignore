@@ -1,0 +1,44 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*.temp
+~*
+
+# Log files
+*.log
+
+# Cache files
+*.cache
+
+# Backup files
+*.bak
+*.backup
+
+# PowerShell files
+*.ps1
+
+# Large video files (optional - you may want to keep these)
+# *.mp4
+# *.avi
+# *.mov
+
+# Duplicate image files (keeping only one version)
+**/images/**(2).*
+**/images/**\ (2).*
+
+# Files with very long names
+**/images/The-picture-was-taken-from-Salto-San-Martin-part-of-Iguazu-waterfalls-complex-Misiones-Province-Argentina_Credit_GettyImages-1171077586.jpg
