@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Plan practical trips with destination budgets, itineraries, travel tips, and safety checklists.">
+  <title>Travel Planner - Travel Idea</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="../assets/js/destinations.js"></script>
+  <script src="../assets/js/travel-search.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap');
+
+    :root {
+      --bg: #0f172a;
+      --panel: rgba(255, 255, 255, 0.08);
+      --panel-strong: rgba(255, 255, 255, 0.13);
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --soft: #94a3b8;
+      --brand: #38bdf8;
+      --brand-2: #a78bfa;
+      --success: #34d399;
+      --warning: #fbbf24;
+      --danger: #fb7185;
+      --border: rgba(255, 255, 255, 0.14);
+      --radius: 24px;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(56, 189, 248, 0.18), transparent 35%),
+        radial-gradient(circle at 90% 0%, rgba(167, 139, 250, 0.2), transparent 35%),
+        linear-gradient(135deg, #0f172a 0%, #111827 55%, #1e1b4b 100%);
+      min-height: 100vh;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(15, 23, 42, 0.78);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+
+    .brand i {
+      color: var(--brand);
+      font-size: 1.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      padding: 10px 14px;
+      border-radius: 999px;
+      transition: 0.25s ease;
+      font-size: 0.92rem;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+      background: var(--panel-strong);
+    }
+
+    .hero {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 72px 22px 32px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--brand);
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 8px 12px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+      font-size: 0.9rem;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.7rem, 5vw, 5.25rem);
+      line-height: 0.98;
+      margin: 0 0 22px;
+      letter-spacing: -0.055em;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 1.13rem;
+      line-height: 1.75;
+      max-width: 680px;
+    }
+
+    .hero-card,
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      backdrop-filter: blur(20px);
+    }
+
+    .hero-card {
+      padding: 28px;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .metric {
+      padding: 18px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      border: 1px solid var(--border);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.6rem;
+      color: var(--text);
+    }
+
+    .metric span { color: var(--soft); font-size: 0.88rem; }
+
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 22px 22px 72px;
+    }
+
+    .planner-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .card { padding: 24px; }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 1.55rem;
+      letter-spacing: -0.03em;
+    }
+
+    .hint { color: var(--soft); margin-top: 0; line-height: 1.65; }
+
+    label {
+      display: block;
+      color: var(--muted);
+      font-weight: 600;
+      margin: 18px 0 8px;
+      font-size: 0.92rem;
+    }
+
+    select,
+    input {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.72);
+      color: var(--text);
+      border-radius: 14px;
+      padding: 13px 14px;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    select:focus,
+    input:focus {
+      border-color: rgba(56, 189, 248, 0.7);
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.12);
+    }
+
+    .button-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      border-radius: 999px;
+      padding: 13px 18px;
+      color: #07111f;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      font-weight: 800;
+      transition: 0.25s ease;
+    }
+
+    button.secondary {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--border);
+    }
+
+    button:hover { transform: translateY(-2px); }
+
+    .result-card {
+      background: rgba(15, 23, 42, 0.45);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 22px;
+      margin-bottom: 16px;
+    }
+
+    .result-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .pill-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 14px 0;
+    }
+
+    .pill {
+      font-size: 0.83rem;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .budget-box {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .budget-item {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .budget-item span {
+      display: block;
+      color: var(--soft);
+      font-size: 0.8rem;
+    }
+
+    .budget-item strong {
+      font-size: 1.2rem;
+      color: var(--success);
+    }
+
+    ul.clean {
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .checklist label {
+      margin: 0;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .checklist input { width: auto; margin-top: 4px; }
+
+    .notice {
+      color: var(--warning);
+      background: rgba(251, 191, 36, 0.08);
+      border: 1px solid rgba(251, 191, 36, 0.25);
+      padding: 14px;
+      border-radius: 16px;
+      margin-top: 18px;
+      line-height: 1.6;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      color: var(--soft);
+      text-align: center;
+      padding: 28px 20px;
+      background: rgba(15, 23, 42, 0.45);
+    }
+
+    @media (max-width: 860px) {
+      .hero,
+      .planner-grid {
+        grid-template-columns: 1fr;
+      }
+      .budget-box,
+      .metric-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a class="brand" href="Home.html"><i class="fas fa-plane-departure"></i> Travel Idea</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="Home.html">Home</a>
+        <a href="Country Page.html">Countries</a>
+        <a href="Travel Planner.html" class="active">Planner</a>
+        <a href="About Us.html">About</a>
+        <a href="Contact Us.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div>
+      <div class="eyebrow"><i class="fas fa-map-location-dot"></i> Practical travel planning tool</div>
+      <h1>Plan trips with real decisions, not only beautiful photos.</h1>
+      <p class="lead">Compare destination budgets, trip length, seasons, itinerary ideas, highlights, and safety checklist items before choosing where to go.</p>
+    </div>
+    <aside class="hero-card" aria-label="Planner value summary">
+      <h2>What this adds</h2>
+      <p class="hint">A real-world planning layer for the website: budget estimate, trip day suggestions, practical tips, and pre-travel checklist.</p>
+      <div class="metric-grid">
+        <div class="metric"><strong>11</strong><span>countries structured</span></div>
+        <div class="metric"><strong>3</strong><span>budget levels</span></div>
+        <div class="metric"><strong>8+</strong><span>checklist items</span></div>
+        <div class="metric"><strong>7-10</strong><span>itinerary ideas per country</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <main>
+    <div class="planner-grid">
+      <section class="card" aria-label="Planner controls">
+        <h2>Find a travel idea</h2>
+        <p class="hint">Use the filters to compare destinations. Budget values are planning estimates only and should be checked before booking.</p>
+
+        <label for="searchInput">Search destination or highlight</label>
+        <input id="searchInput" type="search" placeholder="Try Sri Lanka, beach, culture, Great Wall...">
+
+        <label for="continentSelect">Continent</label>
+        <select id="continentSelect">
+          <option value="">All continents</option>
+          <option>Asia</option>
+          <option>Europe</option>
+          <option>Africa</option>
+          <option>North America</option>
+          <option>South America</option>
+          <option>Oceania</option>
+        </select>
+
+        <label for="categorySelect">Travel style</label>
+        <select id="categorySelect">
+          <option value="">All styles</option>
+          <option value="beach">Beach</option>
+          <option value="culture">Culture</option>
+          <option value="history">History</option>
+          <option value="nature">Nature</option>
+          <option value="city">City</option>
+          <option value="adventure">Adventure</option>
+          <option value="food">Food</option>
+        </select>
+
+        <label for="budgetSelect">Budget type</label>
+        <select id="budgetSelect">
+          <option value="">All budgets</option>
+          <option value="budget">Budget</option>
+          <option value="mid-range">Mid-range</option>
+          <option value="premium">Premium</option>
+        </select>
+
+        <div class="button-row">
+          <button id="applyFilters" type="button"><i class="fas fa-magnifying-glass"></i> Search</button>
+          <button id="resetFilters" class="secondary" type="button"><i class="fas fa-rotate-left"></i> Reset</button>
+        </div>
+
+        <div class="notice">
+          <strong>Travel note:</strong> Prices, visa rules, transport schedules, weather, and advisories change. Use this page for planning, then verify with official sources before booking.
+        </div>
+      </section>
+
+      <section class="card" aria-label="Planner results">
+        <h2>Destination matches</h2>
+        <p class="hint" id="resultCount">Showing available destinations.</p>
+        <div id="plannerResults"></div>
+      </section>
+    </div>
+
+    <section class="card" style="margin-top: 24px;" aria-label="Universal travel checklist">
+      <h2>Universal pre-travel checklist</h2>
+      <p class="hint">Use this as a simple checklist before any international trip.</p>
+      <div id="travelChecklist" class="checklist"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Travel Idea Planner • Practical planning support for better travel decisions</p>
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const continentSelect = document.getElementById('continentSelect');
+    const categorySelect = document.getElementById('categorySelect');
+    const budgetSelect = document.getElementById('budgetSelect');
+    const results = document.getElementById('plannerResults');
+    const resultCount = document.getElementById('resultCount');
+    const checklist = document.getElementById('travelChecklist');
+
+    function formatBudget(destination) {
+      if (!destination.dailyBudgetUsd) return '';
+      return `
+        <div class="budget-box">
+          <div class="budget-item"><span>Budget/day</span><strong>$${destination.dailyBudgetUsd.budget}</strong></div>
+          <div class="budget-item"><span>Mid-range/day</span><strong>$${destination.dailyBudgetUsd.midRange}</strong></div>
+          <div class="budget-item"><span>Premium/day</span><strong>$${destination.dailyBudgetUsd.premium}</strong></div>
+        </div>
+      `;
+    }
+
+    function renderResults(list) {
+      resultCount.textContent = `${list.length} destination${list.length === 1 ? '' : 's'} found.`;
+
+      if (!list.length) {
+        results.innerHTML = '<div class="result-card"><p class="hint">No destination matched your filters. Try removing one filter.</p></div>';
+        return;
+      }
+
+      results.innerHTML = list.map((destination) => `
+        <article class="result-card">
+          <div class="result-top">
+            <div>
+              <h2>${destination.country}</h2>
+              <p class="hint">${destination.description}</p>
+            </div>
+            <span class="pill">${destination.recommendedDays} recommended days</span>
+          </div>
+          <div class="pill-row">
+            <span class="pill">${destination.continent}</span>
+            <span class="pill">${destination.budget}</span>
+            <span class="pill">Best: ${destination.bestSeason}</span>
+            ${(destination.category || []).map((item) => `<span class="pill">${item}</span>`).join('')}
+          </div>
+          ${formatBudget(destination)}
+          <h3>Highlights</h3>
+          <ul class="clean">${(destination.highlights || []).map((item) => `<li>${item}</li>`).join('')}</ul>
+          <h3>Itinerary ideas</h3>
+          <ul class="clean">${(destination.itineraryIdeas || []).map((item) => `<li>${item}</li>`).join('')}</ul>
+          <h3>Practical tips</h3>
+          <ul class="clean">${(destination.practicalTips || []).map((item) => `<li>${item}</li>`).join('')}</ul>
+          <p class="notice">${destination.planningNote || 'Verify current travel information before booking.'}</p>
+        </article>
+      `).join('');
+    }
+
+    function applyFilters() {
+      const filters = {
+        query: searchInput.value,
+        continent: continentSelect.value,
+        category: categorySelect.value,
+        budget: budgetSelect.value,
+      };
+      const list = window.travelSearch ? window.travelSearch.filterDestinations(window.destinations, filters) : window.destinations;
+      renderResults(list || []);
+    }
+
+    function resetFilters() {
+      searchInput.value = '';
+      continentSelect.value = '';
+      categorySelect.value = '';
+      budgetSelect.value = '';
+      renderResults(window.destinations || []);
+    }
+
+    function renderChecklist() {
+      checklist.innerHTML = (window.universalTravelChecklist || []).map((item, index) => `
+        <label for="check-${index}">
+          <input id="check-${index}" type="checkbox">
+          <span>${item}</span>
+        </label>
+      `).join('');
+    }
+
+    document.getElementById('applyFilters').addEventListener('click', applyFilters);
+    document.getElementById('resetFilters').addEventListener('click', resetFilters);
+    searchInput.addEventListener('input', applyFilters);
+
+    renderResults(window.destinations || []);
+    renderChecklist();
+  </script>
+</body>
+</html>
