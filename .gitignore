@@ -7,38 +7,42 @@
 ehthumbs.db
 Thumbs.db
 
-# IDE files
+# Editor and IDE files
 .vscode/
 .idea/
 *.swp
 *.swo
 
-# Temporary files
+# Temporary and backup files
 *.tmp
 *.temp
-~*
-
-# Log files
-*.log
-
-# Cache files
-*.cache
-
-# Backup files
 *.bak
 *.backup
+~*
 
-# PowerShell files
-*.ps1
+# Logs
+*.log
+logs/
 
-# Large video files (optional - you may want to keep these)
+# Dependencies and tooling
+node_modules/
+dist/
+build/
+.cache/
+*.cache
+
+# Environment files
+.env
+.env.local
+
+# Optional large local media exports
 # *.mp4
 # *.avi
 # *.mov
 
-# Duplicate image files (keeping only one version)
+# Duplicate generated image files
 **/images/**(2).*
 **/images/**\ (2).*
 
-# Files with very long names
+# Files with very long names that are difficult to manage on Windows
 **/images/The-picture-was-taken-from-Salto-San-Martin-part-of-Iguazu-waterfalls-complex-Misiones-Province-Argentina_Credit_GettyImages-1171077586.jpg
