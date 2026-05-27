@@ -1,166 +1,200 @@
-# Travel Idea Website (Front-End)
+<div align="center">
 
-A comprehensive website for sharing and discovering inspiring travel ideas, itineraries, and tips for various destinations around the world.
+# 🌍 Travel Idea Website
 
-## 🌍 About
+**A modern static travel inspiration website for discovering destinations, attractions, itineraries, and travel ideas around the world.**
 
-Travel Idea is your gateway to exploring the world with confidence and style. We specialize in creating extraordinary travel experiences that go beyond the ordinary, connecting you with the heart and soul of every destination.
+![HTML5](https://img.shields.io/badge/HTML5-Markup-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-Styling-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-Interactivity-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Static Site](https://img.shields.io/badge/Static%20Site-GitHub%20Pages-222?style=for-the-badge&logo=github)
 
-## ✨ Features
-
-- **Interactive Country Selection**: Choose from 11+ countries including Egypt, France, Greece, Sri Lanka, China, India, Germany, Japan, Brazil, Canada, and Australia
-- **Detailed Destination Guides**: Comprehensive information about top tourist attractions and landmarks
-- **Responsive Design**: Optimized for desktop, tablet, and mobile devices
-- **Modern UI/UX**: Beautiful glassmorphism design with smooth animations
-- **Search Functionality**: Find destinations, countries, and attractions easily
-- **Contact Forms**: Get in touch with travel experts for personalized planning
-- **Feedback System**: Share your travel experiences and rate destinations
-
-## 🏗️ Project Structure
-
-```
-Travel Idea Website/
-├── Home.html              # Main landing page
-├── Country Page.html      # Country selection page
-├── Contact Us.html        # Contact form and information
-├── About Us.html          # About the team and company
-├── Feedback.html          # User feedback and rating system
-├── style.css             # Main stylesheet
-├── my.css                # Additional styles
-├── images/               # Image assets
-│   ├── travel logo.png
-│   ├── travelvideo.mp4
-│   └── [country/attraction images]
-└── subpages/             # Individual destination pages
-    ├── lk_tourist_sites.html    # Sri Lanka
-    ├── Ch_tourist_sites.html    # China
-    ├── Jp_tourist_sites.html    # Japan
-    ├── Egy_tourist_sites.html   # Egypt
-    ├── Fr_tourist_sites.html    # France
-    ├── Ge_tourist_sites.html    # Greece
-    ├── In_tourist_sites.html    # India
-    ├── Gr_tourist_sites.html    # Germany
-    ├── Br_tourist_sites.html    # Brazil
-    ├── ca_tourist_sites.html    # Canada
-    ├── Au_tourist_sites.html    # Australia
-    └── [individual attraction pages]
-```
-
-## 🚀 Getting Started
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Nirwan-WSNj/Travel-Idea-Website.git
-   ```
-
-2. **Navigate to the project directory**
-   ```bash
-   cd Travel-Idea-Website
-   ```
-
-3. **Open in your browser**
-   - Simply open `Travel Idea Website/Home.html` in your web browser
-   - Or use a local server for better performance:
-     ```bash
-     # Using Python
-     python -m http.server 8000
-     
-     # Using Node.js
-     npx serve .
-     ```
-
-4. **Access the website**
-   - Direct file: `file:///path/to/Travel Idea Website/Home.html`
-   - Local server: `http://localhost:8000/Travel Idea Website/Home.html`
-
-## 🌟 Destinations Covered
-
-### Countries
-- **Egypt** - Pyramids of Giza, Luxor Temple, Valley of the Kings
-- **France** - Eiffel Tower, Mont Saint-Michel, Palace of Versailles
-- **Greece** - Acropolis of Athens, Delphi, Santorini
-- **Sri Lanka** - Sigiriya Rock, Anuradhapura, Nuwara Eliya
-- **China** - Great Wall, Forbidden City, Terracotta Army
-- **India** - Taj Mahal, and more
-- **Germany** - Brandenburg Gate, Neuschwanstein Castle
-- **Japan** - Mount Fuji, Kyoto, Tokyo, Hiroshima Peace Memorial
-- **Brazil** - Christ the Redeemer, Amazon Rainforest
-- **Canada** - Niagara Falls, Banff National Park
-- **Australia** - Sydney Opera House, Great Barrier Reef, Uluru
-
-## 🛠️ Technologies Used
-
-- **HTML5** - Semantic markup and structure
-- **CSS3** - Modern styling with Flexbox/Grid, animations, and glassmorphism effects
-- **JavaScript** - Interactive functionality and dynamic content
-- **Font Awesome** - Icons and visual elements
-- **Google Fonts** - Typography (Inter, Playfair Display)
-
-## 👥 Team
-
-- **M.S.M. Nirwan** - Coordinate Officer
-- **S.P.S. Gayashan** - Security Officer
-- **L.W.S. Maduwantha** - Structure and Designing Officer
-- **K.W.G.T.D. Moraies** - Communication Officer
-- **D.P.T. Dilsara** - Research Officer
-- **R.A. Ovinu Madisha** - Team Organizer Officer
-- **W.P.A. Gaurawa** - Customer Feedback Control Officer
-
-## 📱 Features
-
-### Responsive Design
-- Mobile-first approach
-- Tablet and desktop optimized
-- Cross-browser compatibility
-
-### Interactive Elements
-- Smooth scrolling navigation
-- Hover effects and animations
-- Dynamic search functionality
-- Back-to-top button
-
-### Accessibility
-- Semantic HTML structure
-- Alt text for images
-- Keyboard navigation support
-- Screen reader friendly
-
-## 🔧 Recent Updates
-
-- ✅ Fixed character encoding issues (UTF-8)
-- ✅ Improved responsive design
-- ✅ Enhanced JavaScript functionality
-- ✅ Updated country and attraction information
-- ✅ Optimized image loading
-- ✅ Added proper meta tags for SEO
-
-## 📞 Contact
-
-- **Email**: hello@travelidea.com
-- **Phone**: +94 77 123 1233
-- **Address**: 123 Travel Lane, Adventure City
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- Thanks to all team members for their dedication
-- Special thanks to the travel photography community for inspiration
-- Font Awesome for the beautiful icons
-- Google Fonts for typography
+</div>
 
 ---
 
-**Made with ❤️ for adventurous souls**
+## 📌 Overview
 
-*Discover your next adventure with Travel Idea!*
+Travel Idea Website is a front-end travel discovery project built with HTML, CSS, and JavaScript. It helps users explore countries, landmarks, tourist attractions, travel tips, and destination ideas through a responsive and visually engaging interface.
+
+The project is designed as a static website and can be hosted with GitHub Pages.
+
+---
+
+## ✨ Key Features
+
+| Feature | Description |
+|---|---|
+| Country discovery | Explore destinations across Asia, Europe, Africa, North America, South America, and Oceania. |
+| Destination guides | View top attractions, landmarks, and travel highlights. |
+| Responsive UI | Works across desktop, tablet, and mobile devices. |
+| Search-ready structure | Includes reusable destination data and search helper scripts for future dynamic filtering. |
+| Contact and feedback pages | Provides front-end forms for visitor communication and feedback. |
+| Static deployment ready | Suitable for GitHub Pages hosting. |
+
+---
+
+## 🌟 Destinations Covered
+
+- **Sri Lanka** — Sigiriya, Anuradhapura, Nuwara Eliya, Ella, Galle Fort
+- **Japan** — Mount Fuji, Kyoto, Tokyo, Hiroshima Peace Memorial
+- **France** — Eiffel Tower, Mont Saint-Michel, Palace of Versailles
+- **Greece** — Acropolis of Athens, Delphi, Santorini
+- **Egypt** — Pyramids of Giza, Luxor Temple, Valley of the Kings
+- **Australia** — Sydney Opera House, Great Barrier Reef, Uluru
+- **Canada** — Niagara Falls, Banff National Park, Vancouver
+- **Brazil** — Christ the Redeemer, Amazon Rainforest, Iguazu Falls
+- **Germany** — Brandenburg Gate, Neuschwanstein Castle, Berlin
+- **India** — Taj Mahal, Jaipur, Kerala, Varanasi
+- **China** — Great Wall, Forbidden City, Terracotta Army
+
+---
+
+## 🧱 Current Project Structure
+
+```text
+Travel-Idea-Website/
+├── Home.html
+├── Country Page.html
+├── Contact Us.html
+├── About Us.html
+├── Feedback.html
+├── style.css
+├── my.css
+├── assets/
+│   └── js/
+│       ├── destinations.js
+│       └── travel-search.js
+├── images/
+│   ├── travel logo.png
+│   ├── travelvideo.mp4
+│   └── destination images
+├── subpages/
+│   └── country and attraction pages
+├── docs/
+│   └── GITHUB_PAGES_SETUP.md
+└── PROJECT_IMPROVEMENTS.md
+```
+
+---
+
+## 🛠 Technology Stack
+
+| Layer | Technology |
+|---|---|
+| Markup | HTML5 |
+| Styling | CSS3, Flexbox, Grid, animations |
+| Interactivity | JavaScript |
+| Icons | Font Awesome |
+| Fonts | Google Fonts |
+| Hosting | GitHub Pages recommended |
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Nirwan-WSNj/Travel-Idea-Website.git
+cd Travel-Idea-Website
+```
+
+### 2. Run locally
+
+Open directly in browser:
+
+```text
+Home.html
+```
+
+Or run a local server:
+
+```bash
+python -m http.server 8000
+```
+
+Then open:
+
+```text
+http://localhost:8000/Home.html
+```
+
+---
+
+## 🌐 GitHub Pages Hosting
+
+This is a static site, so it can be hosted with GitHub Pages.
+
+Recommended setup:
+
+```text
+Repository → Settings → Pages → Deploy from branch → main → root
+```
+
+Because the main file is currently `Home.html`, the hosted page may be:
+
+```text
+https://nirwan-wsnj.github.io/Travel-Idea-Website/Home.html
+```
+
+See:
+
+```text
+docs/GITHUB_PAGES_SETUP.md
+```
+
+---
+
+## 🔎 New Data/Search Foundation
+
+Added reusable files for future dynamic rendering:
+
+```text
+assets/js/destinations.js
+assets/js/travel-search.js
+```
+
+These can be used later to build search filters by:
+
+- country
+- continent
+- category
+- budget
+- best season
+- travel highlights
+
+---
+
+## 📈 Improvement Roadmap
+
+See the full roadmap:
+
+```text
+PROJECT_IMPROVEMENTS.md
+```
+
+Main next improvements:
+
+- Rename files to lowercase names without spaces.
+- Move pages into a cleaner folder structure.
+- Convert repeated destination pages to reusable data-driven templates.
+- Improve search and filtering UI.
+- Add itinerary cards.
+- Compress and optimize images.
+- Connect contact and feedback forms to a real service.
+
+---
+
+## 📞 Contact
+
+- **Project Owner:** Nirwan-WSNj
+- **Repository:** `Travel-Idea-Website`
+
+---
+
+<div align="center">
+
+**Made for travelers who want simple, visual, and inspiring destination discovery.**
+
+</div>
